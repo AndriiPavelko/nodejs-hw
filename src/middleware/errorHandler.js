@@ -7,9 +7,5 @@ export const errorHandler = (err, req, res, next) => {
     });
   }
 
-  const isProd = process.env.NODE_ENV === 'production';
-  const status = err.name === 'ValidationError' ? 400 : 500;
-  res.status(status).json({
-    message: isProd ? err.message : err.stack,
-  });
+  res.status(500).json({message:err.message});
 };
