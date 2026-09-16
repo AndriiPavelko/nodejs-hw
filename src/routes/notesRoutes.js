@@ -1,12 +1,11 @@
-
-import { Router } from "express";
+import { Router } from 'express';
 import {
   getNotes,
   getNotesId,
   createNotes,
   deleteNotes,
-  updateNote }
-  from '../controllers/notesController.js';
+  updateNote,
+} from '../controllers/notesController.js';
 const router = Router();
 
 router.get('/notes', getNotes);
@@ -18,6 +17,5 @@ router.post('/notes', createNotes);
 router.delete('/notes/:noteId', deleteNotes);
 
 router.patch('/notes/:noteId', updateNote);
-
 
 export default router;
