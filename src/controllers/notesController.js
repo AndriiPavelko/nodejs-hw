@@ -10,7 +10,7 @@ export const getAllNotes  = async (req, res) => {
   const noteQuery = Note.find();
 
   if (tag){
-    noteQuery.where("tag");
+    noteQuery.where("tag").equals(tag);
   };
 
 
