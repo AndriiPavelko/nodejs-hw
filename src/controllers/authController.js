@@ -27,7 +27,7 @@ export const registerUser = async (req, res) => {
   res.status(201).json(newUser);
 };
 
-export const loginUser = async (res, req) => {
+export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });

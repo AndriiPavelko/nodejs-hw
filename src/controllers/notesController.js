@@ -6,7 +6,7 @@ export const getAllNotes = async (req, res) => {
   const skip = (page - 1) * perPage;
   const limit = perPage;
 
-  const noteQuery = Note.find();
+  const noteQuery = Note.find({ userId: req.user._id });
 
   if (tag) {
     noteQuery.where('tag').equals(tag);
@@ -20,8 +20,6 @@ export const getAllNotes = async (req, res) => {
       ],
     });
   }
-
-  const notesQuery = Student.find({ userId: req.user._id });
 
   const [totalNotes, notes] = await Promise.all([
     noteQuery.clone().countDocuments(),
