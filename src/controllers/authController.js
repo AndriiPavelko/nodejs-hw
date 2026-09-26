@@ -1,10 +1,8 @@
 import createHttpError from 'http-errors';
 import {User} from '../models/user';
 import bcrypt from 'bcrypt';
-import { createSession } from '../services/auth.js';
+import { createSession, setSessionCookies } from '../services/auth.js';
 import { Session } from '../models/session.js';
-import {  createSession , setSessionCookies} from '../services/auth.js';
-
 
 
 export const registerUser = async (req , res) => {
