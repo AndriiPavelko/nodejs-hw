@@ -4,7 +4,8 @@ import {
   noteIdSchema,
   updateNoteSchema,
   getAllNotesSchema,
-  createNoteSchema } from '../validations/notesValidation.js';
+  createNoteSchema
+} from '../validations/notesValidation.js';
 import {
   getAllNotes ,
   getNoteById,
@@ -12,8 +13,12 @@ import {
   deleteNote,
   updateNote,
 } from '../controllers/notesController.js';
+import { authenticate } from '../middleware/authenticate.js';
+
+
 const router = Router();
 
+router.use('/notes', authenticate);
 router.get('/notes', celebrate(getAllNotesSchema),getAllNotes );
 
 router.get('/notes/:noteId',
